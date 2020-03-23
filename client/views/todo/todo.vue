@@ -24,6 +24,23 @@ import Item from "./item.vue";
 import Tab from "./tab.vue";
 let id = 0;
 export default {
+  // beforeRouteEnter (to, from, next) {
+  //   console.log('todo beforeRouteEnter')
+  //   // next()
+  //   next(vm=>{
+  //     console.log(vm.id)
+  //   })
+  // },
+  // beforeRouteUpdate (to, from, next) {
+  //   console.log('todo beforeRouteUpdate')
+  //   next()
+  // },
+  // beforeRouteLeave (to, from, next) {
+  //   console.log('todo beforeRouteLeave')
+  //   if(confirm('r u sure?')){
+  //     next()
+  //   }
+  // },
   components: {
     Item,
     Tab
@@ -31,7 +48,8 @@ export default {
   props: ["id"],
   mounted(){
     // console.log(this.$route)
-    console.log(this.id)
+    // console.log(this.id)
+    // console.log('todo mounted')//如果是同一个路由但是动态参数不一样，之间跳转，是不会触发的，就必须使用beforeRouteUpdate；
   },
   data() {
     return {
