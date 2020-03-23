@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV === "development";
 const defaultPlugins = [
   new HtmlWebpackPlugin({
     filename: "index.html",
-    template: "template.html"
+    template: path.join(__dirname, 'template.html')
     // inject: true
   }),
   new webpack.DefinePlugin({
@@ -31,7 +31,10 @@ if (isDev) {
       overlay: {
         errors: true //webpack 编译过程中，一出现错误 就会显示到网页上
       },
-      hot: true
+      hot: true,
+      historyApiFallback: {
+        index: '/public/index.html'
+      }
     },
     module: {
       rules: [
