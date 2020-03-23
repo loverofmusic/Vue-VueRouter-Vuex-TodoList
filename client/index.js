@@ -1,23 +1,25 @@
-import Vue from 'vue'
-import App from './app.vue'
+import Vue from "vue";
+import App from "./app.vue";
 import VueRouter from "vue-router";
 
-import 'lib-flexible/flexible.js'
+import "lib-flexible/flexible.js";
 
-import './assets/styles/global.styl';
+import "./assets/styles/global.styl";
 
-import createRouter from './router/index.js'
-const router = createRouter()
+import store from "./store/index.js";
+
+import createRouter from "./router";
+const router = createRouter();
 
 // router.beforeEach((to, from, next)=>{
-  // console.log('before each invoked')
-  // if(to.fullPath==='/app'){
-  //   // next({path: '/login'})
-  //   next('/login')
-  // }else{
-  //   next()
-  // }
-  // next()
+// console.log('before each invoked')
+// if(to.fullPath==='/app'){
+//   // next({path: '/login'})
+//   next('/login')
+// }else{
+//   next()
+// }
+// next()
 // })
 
 // router.beforeResolve((to, from, next)=>{
@@ -29,9 +31,10 @@ const router = createRouter()
 //   console.log('afterEach invoked')
 // })
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 new Vue({
   router,
+  store,
   render: h => h(App)
-}).$mount("#root")
+}).$mount("#root");

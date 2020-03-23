@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div id="cover">
-
       <Header />
 
       <!-- <Todo></Todo> -->
@@ -13,9 +12,10 @@
       <transition name="fade">
         <router-view />
       </transition>
-      
+
       <Footer />
       <!-- <router-view name="a" /> -->
+      <p>{{count}}</p>
     </div>
   </div>
 </template>
@@ -31,6 +31,18 @@ export default {
     Header,
     Footer
     // Todo
+  },
+  mounted() {
+    console.log(this.$store);
+    let i = 1;
+    setInterval(()=>{
+      this.$store.commit('updateCount', i++)
+    },1000)
+  },
+  computed: {
+    count() {
+      return this.$store.state.count
+    }
   }
 };
 </script>
@@ -53,5 +65,4 @@ export default {
     display flex
     align-items center
     justify-content center
-
 </style>
