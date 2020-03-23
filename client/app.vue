@@ -15,7 +15,9 @@
 
       <Footer />
       <!-- <router-view name="a" /> -->
-      <p>{{count}}</p>
+      <!-- <p>{{count}}</p> -->
+      <p v-if="false">{{fullName}}</p>
+      <p v-if="false">{{counter}}</p>
     </div>
   </div>
 </template>
@@ -24,6 +26,7 @@
 import Header from "./layout/header.vue";
 import Footer from "./layout/footer.vue";
 // import Todo from "./views/todo/todo.vue";
+import {mapState, mapGetters} from 'vuex'
 
 export default {
   // name: 'App',
@@ -33,16 +36,27 @@ export default {
     // Todo
   },
   mounted() {
-    console.log(this.$store);
-    let i = 1;
-    setInterval(()=>{
-      this.$store.commit('updateCount', i++)
-    },1000)
+    // console.log(this.$store);
+    // let i = 1;
+    // setInterval(()=>{
+    //   this.$store.commit('updateCount', i++)
+    // },1000)
   },
   computed: {
-    count() {
-      return this.$store.state.count
-    }
+    // count() {
+    //   return this.$store.state.count
+    // },
+    // ...mapState(['count']),
+    // ...mapState({
+    //   counter: 'count'
+    // }),
+    ...mapState({
+      counter: (state) => state.count + 5
+    }),
+    // fullName() {
+    //   return this.$store.getters.fullName
+    // }
+    ...mapGetters(['fullName'])
   }
 };
 </script>

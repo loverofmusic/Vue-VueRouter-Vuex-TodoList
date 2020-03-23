@@ -1,15 +1,20 @@
 import Vue from "vue";
 import App from "./app.vue";
 import VueRouter from "vue-router";
+import Vuex from "vuex";
 
 import "lib-flexible/flexible.js";
 
 import "./assets/styles/global.styl";
 
-import store from "./store/index.js";
-
 import createRouter from "./router";
+import createStore from './store';
+
+Vue.use(VueRouter);
+Vue.use(Vuex);
+
 const router = createRouter();
+const store = createStore();
 
 // router.beforeEach((to, from, next)=>{
 // console.log('before each invoked')
@@ -30,8 +35,6 @@ const router = createRouter();
 // router.afterEach((to, from)=>{
 //   console.log('afterEach invoked')
 // })
-
-Vue.use(VueRouter);
 
 new Vue({
   router,
