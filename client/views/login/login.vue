@@ -1,5 +1,5 @@
 <template>
-  <div>login</div>
+  <div class="login">login</div>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="stylus">
+.login
+    color white
 </style>

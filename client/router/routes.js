@@ -7,8 +7,21 @@ const routes = [
     redirect: '/app'
   },
   {
-    path: '/app',
-    component: Todo
+    path: '/app/:id',
+    props: true,//不需要再通过this.$route来获取动态id
+    // props: (route) => ({id: route.query.b}),
+    component: Todo,
+    name: 'app',
+    meta: {
+      title: 'this is app',
+      description: 'this is description'
+    }
+    // children: [
+    //   {
+    //     path: 'test',
+    //     component: Login
+    //   }
+    // ]
   },
   {
     path: '/login',

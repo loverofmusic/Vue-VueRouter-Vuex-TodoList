@@ -14,6 +14,8 @@
       @toggle="toggleFilter"
       @clear="clearAllCompleted"
     ></Tab>
+
+    <!-- <router-view></router-view> -->
   </section>
 </template>
 
@@ -25,6 +27,11 @@ export default {
   components: {
     Item,
     Tab
+  },
+  props: ["id"],
+  mounted(){
+    // console.log(this.$route)
+    console.log(this.id)
   },
   data() {
     return {
