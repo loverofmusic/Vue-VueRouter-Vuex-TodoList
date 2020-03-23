@@ -18,7 +18,7 @@ export default () => {
           y: 0
         };
       }
-    },
+    }
     // parseQuery(query){
 
     // },
