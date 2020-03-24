@@ -8,7 +8,7 @@ import "lib-flexible/flexible.js";
 import "./assets/styles/global.styl";
 
 import createRouter from "./router";
-import createStore from './store';
+import createStore from "./store";
 
 Vue.use(VueRouter);
 Vue.use(Vuex);

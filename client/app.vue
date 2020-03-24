@@ -15,7 +15,7 @@
 
       <Footer />
       <!-- <router-view name="a" /> -->
-      <!-- <p>{{count}}</p> -->
+      <p v-if="false">{{count}}</p>
       <p v-if="false">{{fullName}}</p>
       <p v-if="false">{{counter}}</p>
     </div>
@@ -26,7 +26,7 @@
 import Header from "./layout/header.vue";
 import Footer from "./layout/footer.vue";
 // import Todo from "./views/todo/todo.vue";
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapActions, mapMutations} from 'vuex'
 
 export default {
   // name: 'App',
@@ -37,22 +37,42 @@ export default {
   },
   mounted() {
     // console.log(this.$store);
+
     // let i = 1;
     // setInterval(()=>{
-    //   this.$store.commit('updateCount', i++)
+    //   this.$store.commit('updateCount',{"num":i++, "num2":2})//commit 只能传两个参数，一个是mutation名称，一个是payload
     // },1000)
+    // setInterval(()=>{
+    //   this.updateCount({num:i++, num2:2})
+    // },1000)
+
+    // this.$store.state.count = 5; //console里面给了warning，不要再外部直接修改state，只能通过mutation
+
+    // this.$store.dispatch('updateCountAsync',{
+    //   num: 5,
+    //   time: 2000
+    // })
+    // this.updateCountAsync({
+    //   num: 5,
+    //   time: 2000
+    // })
+  },
+  methods: {
+    ...mapActions(['updateCountAsync']),
+    ...mapMutations(['updateCount'])
   },
   computed: {
     // count() {
     //   return this.$store.state.count
     // },
-    // ...mapState(['count']),
+    ...mapState(['count']),
     // ...mapState({
     //   counter: 'count'
     // }),
     ...mapState({
       counter: (state) => state.count + 5
     }),
+
     // fullName() {
     //   return this.$store.getters.fullName
     // }
