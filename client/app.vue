@@ -15,7 +15,7 @@
 
       <Footer />
       <!-- <router-view name="a" /> -->
-      <p v-if="false">{{count}}</p>
+      <p v-if="true">{{count}}</p>
       <p v-if="false">{{fullName}}</p>
       <p v-if="false">{{counter}}</p>
     </div>
@@ -52,10 +52,10 @@ export default {
     //   num: 5,
     //   time: 2000
     // })
-    // this.updateCountAsync({
-    //   num: 5,
-    //   time: 2000
-    // })
+    this.updateCountAsync({
+      num: 500000,
+      time: 2000
+    })
   },
   methods: {
     ...mapActions(['updateCountAsync']),
@@ -72,7 +72,6 @@ export default {
     ...mapState({
       counter: (state) => state.count + 5
     }),
-
     // fullName() {
     //   return this.$store.getters.fullName
     // }
